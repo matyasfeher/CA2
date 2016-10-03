@@ -11,10 +11,11 @@ import javax.persistence.Id;
  * @author Acer
  */
 @Entity
-public class Person implements Serializable {
+        
+public class Person extends InfoEntity {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
     private String firstName;
