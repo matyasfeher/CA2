@@ -11,7 +11,7 @@ import javax.persistence.Id;
  * @author Acer
  */
 @Entity
-public class Company implements Serializable {
+public class Company extends InfoEntity {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
