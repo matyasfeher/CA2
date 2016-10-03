@@ -47,7 +47,13 @@ public class facade implements facadeInterface {
     
     @Override
     public Company getCompany(int cvr) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Company company;
+        String query = "SELECT c FROM Company c WHERE c.cvr = :"+cvr;
+        EntityManager em = getEntityManager();
+        Query q = em.createQuery(query);
+        company = (Company) q.getSingleResult();
+        return company;
+    
     }
     
     @Override
@@ -79,7 +85,19 @@ public class facade implements facadeInterface {
     
     @Override
     public void addComapny(String name, String description, int cvr, int numEmployees, int marketValue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = getEntityManager();
+        Company c = new Company(name, description, cvr, numEmployees, marketValue);
+        try {
+            em.getTransaction().begin();
+            em.persist(c);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
     
     @Override
@@ -91,7 +109,12 @@ public class facade implements facadeInterface {
     
     @Override
     public void removeCompany(int cvr) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = getEntityManager();
+        String query = "SELECT c FROM Company c WHERE c.cvr = :"+cvr;
+        Query q = em.createQuery(query);
+        Company company;
+        company = (Company)q.getSingleResult();
+        em.remove(company);
     }
 
     
