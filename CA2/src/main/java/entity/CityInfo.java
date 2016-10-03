@@ -2,10 +2,12 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,6 +22,8 @@ public class CityInfo implements Serializable {
     
     private int zipCode;
     private String city;
+    @OneToMany
+    private List<Address> addressList;
 
     public CityInfo(int zipCode, String city) {
         this.zipCode = zipCode;
