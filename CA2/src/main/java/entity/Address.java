@@ -1,10 +1,12 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,6 +21,8 @@ public class Address implements Serializable {
     
     private String Street;
     private String AdditionalInfo;
+    @OneToMany
+    private List<InfoEntity> infoList;
 
     public Address(String Street, String AdditionalInfo) {
         this.Street = Street;
