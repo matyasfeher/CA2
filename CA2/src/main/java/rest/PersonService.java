@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package rest;
 
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  * @author Lenovo
  */
 @Path("api")
-public class EntityService {
+public class PersonService {
 
     @Context
     private UriInfo context;
@@ -28,7 +28,7 @@ public class EntityService {
     /**
      * Creates a new instance of EntityService
      */
-    public EntityService() {
+    public PersonService() {
     }
 
     /**
