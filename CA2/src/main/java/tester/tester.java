@@ -13,6 +13,8 @@ import entity.Hobby;
 import entity.InfoEntity;
 import entity.Person;
 import entity.Phone;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,21 +26,19 @@ import javax.persistence.Persistence;
 public class tester {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-        Address adress = new Address("Random Street.", "It's an amazing place to not live in");
-        CityInfo city = new CityInfo(2300, "Copenhagen");
-        Company company = new Company("Balabazorus", "Poop","asdasdasd@asdasda.com", 10089538, 100, 10);
-        Hobby hobby = new Hobby("Gaming", "Just click buttons on my PC");
-        Person person = new Person("Zygi", "Pranka", "gdgsdgf@fdgfd.com");
-        Phone phone = new Phone(50324565, "My Phone");
+        Person person = new Person("I don't", "have", "a number");
+//        List<Phone> phoneList = new ArrayList();
+//        Phone phone = new Phone(50302505, "Mah phone");
+//        Phone phone1 = new Phone(50302510, "Mah phone");
+//        Phone phone2 = new Phone(50302520, "Mah phone");
+//        phoneList.add(phone);
+//        phoneList.add(phone1);
+//        phoneList.add(phone2);
+//        person.setPhoneList(phoneList);
         EntityManager em = emf.createEntityManager();
         try{
         em.getTransaction().begin();
-        em.persist(adress);
-        em.persist(city);
-        em.persist(company);
-        em.persist(hobby);
         em.persist(person);
-        em.persist(phone);
         em.getTransaction().commit();
         }
         finally{

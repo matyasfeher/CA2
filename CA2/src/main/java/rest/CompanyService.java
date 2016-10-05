@@ -22,7 +22,7 @@ import javax.ws.rs.core.UriInfo;
 @Path("company")
 public class CompanyService {
 
-    private static final String PU_NAME = "PU";
+    private static final String PU_NAME = "pu";
 
     static TheFacade facade = new TheFacade(Persistence.createEntityManagerFactory(PU_NAME));
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();

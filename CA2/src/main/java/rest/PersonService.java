@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("person")
 public class PersonService {
-    private static final String PU_NAME = "PU";
+    private static final String PU_NAME = "pu";
     
     static TheFacade facade = new TheFacade(Persistence.createEntityManagerFactory(PU_NAME));
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -48,6 +48,16 @@ public class PersonService {
         List list = facade.getPersons();
         return gson.toJson(list);
     }
+    @GET
+    @Path("{zip}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPersons(@PathParam("zip") int zip) {
+        
+        List list = facade.getPersons(zip);
+        return gson.toJson(list);
+    }
+    
+    
     
     @GET
     @Path("complete/{id}")

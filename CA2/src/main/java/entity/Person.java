@@ -16,9 +16,7 @@ import javax.persistence.ManyToMany;
         
 public class Person extends InfoEntity {
     private static final long serialVersionUID = 1L;
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Integer id;
+
     
     private String firstName;
     private String lastName;
@@ -58,12 +56,6 @@ public class Person extends InfoEntity {
     
     
     
-//    public Integer getId() {
-//        return id;
-//    }
-//
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
+
     
 }
