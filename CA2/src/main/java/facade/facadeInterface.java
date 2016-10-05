@@ -20,9 +20,9 @@ public interface facadeInterface {
 
     List<Company> getCompnaies();
 
-    void addPerson(String fname, String lname, String email);
+    void addPerson(Person p);
 
-    void addComapny(String name, String description, String email, int cvr, int numEmployees, int marketValue);
+    void addComapny(Company c);
 
     void removePerson(int id);
 
