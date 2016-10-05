@@ -74,9 +74,8 @@ public class TheFacade implements facadeInterface {
     }
 
     @Override
-    public void addPerson(String fname, String lname, String email) {
+    public void addPerson(Person p) {
         EntityManager em = getEntityManager();
-        Person p = new Person(fname, lname, email);
         try {
             em.getTransaction().begin();
             em.persist(p);
@@ -91,9 +90,8 @@ public class TheFacade implements facadeInterface {
     }
 
     @Override
-    public void addComapny(String name, String description, String email, int cvr, int numEmployees, int marketValue) {
+    public void addComapny(Company c) {
         EntityManager em = getEntityManager();
-        Company c = new Company(name, description, email, cvr, numEmployees, marketValue);
         try {
             em.getTransaction().begin();
             em.persist(c);
