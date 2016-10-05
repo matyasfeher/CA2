@@ -18,9 +18,9 @@ import javax.persistence.Table;
  * @author Acer
  */
 @Entity
-@Table(name="InfoEntity")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="Entity_Type")
+//@Table(name="InfoEntity")
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name="Entity_Type")
 public class InfoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

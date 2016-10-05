@@ -16,20 +16,20 @@ import javax.persistence.ManyToMany;
         
 public class Person extends InfoEntity {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Integer id;
     
     private String firstName;
     private String lastName;
-    private String email;
     @ManyToMany
     private List<Hobby> hobbyList;
 
     public Person(String firstName, String lastName, String email) {
+        super(email);
         this.firstName = firstName;
         this.lastName = lastName; 
-        this.email = email;
+        
     }
     
     
@@ -58,12 +58,12 @@ public class Person extends InfoEntity {
     
     
     
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
     
 }

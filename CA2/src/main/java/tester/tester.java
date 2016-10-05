@@ -28,7 +28,6 @@ public class tester {
         CityInfo city = new CityInfo(2300, "Copenhagen");
         Company company = new Company("Balabazorus", "Poop","asdasdasd@asdasda.com", 10089538, 100, 10);
         Hobby hobby = new Hobby("Gaming", "Just click buttons on my PC");
-        InfoEntity infoentity = new InfoEntity("imcool@gmail.com");
         Person person = new Person("Zygi", "Pranka", "gdgsdgf@fdgfd.com");
         Phone phone = new Phone(50324565, "My Phone");
         EntityManager em = emf.createEntityManager();
@@ -38,7 +37,6 @@ public class tester {
         em.persist(city);
         em.persist(company);
         em.persist(hobby);
-        em.persist(infoentity);
         em.persist(person);
         em.persist(phone);
         em.getTransaction().commit();

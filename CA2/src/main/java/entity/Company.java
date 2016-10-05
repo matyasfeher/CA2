@@ -12,36 +12,33 @@ import javax.persistence.Id;
  */
 @Entity
 public class Company extends InfoEntity {
+
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Integer id;
+
     private String name;
     private String description;
-    private String email;
+
     private int cvr;
     private int numEmployees;
     private int marketValue;
 
     public Company(String name, String description, String email, int cvr, int numEmployees, int marketValue) {
+        super(email);
         this.name = name;
         this.description = description;
-        this.email = email;
         this.cvr = cvr;
         this.numEmployees = numEmployees;
         this.marketValue = marketValue;
     }
-    
-    
-    
+
     //Default Constructor
-    public Company(){
+    public Company() {
     }
 
-    
     //Getters&Setter
-
     public String getName() {
         return name;
     }
@@ -81,14 +78,12 @@ public class Company extends InfoEntity {
     public void setMarketValue(int marketValue) {
         this.marketValue = marketValue;
     }
-    
-    
-    
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }   
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
 }

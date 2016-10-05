@@ -22,7 +22,7 @@ public class GeoFacade implements geoInterface {
     }
 
     private EntityManager getEntityManager() {
-        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        EntityManager em = Persistence.createEntityManagerFactory("pu").createEntityManager();
         return em;
     }
 

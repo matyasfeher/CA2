@@ -21,7 +21,7 @@ public class TheFacade implements facadeInterface {
     }
 
     private EntityManager getEntityManager() {
-        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        EntityManager em = Persistence.createEntityManagerFactory("pu").createEntityManager();
         return em;
     }
 
@@ -37,7 +37,7 @@ public class TheFacade implements facadeInterface {
         List<Person> people;
         EntityManager em = getEntityManager();
         String query = "SELECT p FROM Person p";
-        Query q = em.createNamedQuery(query);
+        Query q = em.createQuery(query);
         people = q.getResultList();
         return people;
     }
