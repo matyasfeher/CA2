@@ -22,12 +22,14 @@ public class Person extends InfoEntity {
     
     private String firstName;
     private String lastName;
+    private String email;
     @ManyToMany
     private List<Hobby> hobbyList;
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;
-        this.lastName = lastName;
+        this.lastName = lastName; 
+        this.email = email;
     }
     
     

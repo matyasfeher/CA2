@@ -20,13 +20,13 @@ public class CityInfo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    private int zipCode;
+    private int ZIP;
     private String city;
     @OneToMany
     private List<Address> addressList;
 
     public CityInfo(int zipCode, String city) {
-        this.zipCode = zipCode;
+        this.ZIP = zipCode;
         this.city = city;
     }
     
@@ -40,11 +40,11 @@ public class CityInfo implements Serializable {
     //Getters&Setter
 
     public int getZipCode() {
-        return zipCode;
+        return ZIP;
     }
 
     public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+        this.ZIP = zipCode;
     }
 
     public String getCity() {

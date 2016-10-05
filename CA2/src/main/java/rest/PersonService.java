@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rest;
 
 import com.google.gson.Gson;
@@ -41,30 +36,18 @@ public class PersonService {
     public PersonService() {
     }
 
-    /**
-     * Retrieves representation of an instance of entity.EntityService
-     * @return an instance of java.lang.String
-     */
     @GET
-    @Path("/complete")
+    @Path("complete")
     @Produces(MediaType.APPLICATION_JSON)
     public String getPersons() {
         List list = facade.getPersons();
         return gson.toJson(list);
     }
+    
     @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public String getXml() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * PUT method for updating or creating an instance of EntityService
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
+    @Path("{id}")
+    public String getPerson(@PathParam("id") int id){
+        Person p = facade.getPerson(id);
+        return gson.toJson(p);
     }
 }
