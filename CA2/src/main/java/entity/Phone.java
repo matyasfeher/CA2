@@ -33,8 +33,7 @@ public class Phone implements Serializable {
     //Default Constructor
     public Phone(){
     
-    }
-    
+    }    
     //Getters&Setter
 
     public int getNumber() {
