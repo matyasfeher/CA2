@@ -9,11 +9,10 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author Lenovo
+ * @author Zygi
  */
 public class SchemaBuilder {
     public static void main(String[] args) {
         Persistence.generateSchema("pu", null);
     }
-    
 }

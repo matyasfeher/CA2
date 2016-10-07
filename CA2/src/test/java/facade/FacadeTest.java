@@ -41,8 +41,8 @@ public class FacadeTest {
               addressList.add(a1);
               addressList.add(a2);
             ci1.setAddressList(addressList);
-            Person p1 = new Person("aa","bb");
-            Person p2 = new Person("bb","cc");
+            Person p1 = new Person("aa","bb","Email@email.com");
+            Person p2 = new Person("bb","cc","Email@email.com");
         try{
             em.getTransaction().begin();
                      
@@ -134,8 +134,10 @@ public class FacadeTest {
         System.out.println("addPerson");
         String fname = "";
         String lname = "";
+        String email = "";
+        Person a = new Person(fname,lname,email);
         
-        instance.addPerson(fname, lname);
+        instance.addPerson(a);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -152,10 +154,10 @@ public class FacadeTest {
         int numEmployees = 0;
         int marketValue = 0;
         
-        instance.addComapny(name, description, cvr, numEmployees, marketValue);
+       /* instance.addCompany(name, description, cvr, numEmployees, marketValue);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    */}
 
     /**
      * Test of removePerson method, of class TheFacade.
