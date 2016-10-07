@@ -5,9 +5,13 @@
  */
 package facade;
 
+import entity.Address;
+import entity.CityInfo;
 import entity.Company;
 import entity.Person;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.junit.Before;
@@ -21,46 +25,65 @@ import static org.junit.Assert.*;
 public class FacadeTest {
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_test");
     
-      private static facadeInterface instance = new Facade(emf);
+      private static facadeInterface instance = new TheFacade(emf);
     
     public FacadeTest() {
     }
     
     @Before
     public void setUp() {
+        EntityManager em = emf.createEntityManager();
+        CityInfo ci1 = new CityInfo(2800,"City");
+            CityInfo ci2 = new CityInfo(2700,"Other City");
+            Address a1 = new Address("Street","Additional info");
+            Address a2 = new Address ("Street 2","Additional info");
+              List<Address> addressList = new ArrayList();
+              addressList.add(a1);
+              addressList.add(a2);
+            ci1.setAddressList(addressList);
+            Person p1 = new Person("aa","bb");
+            Person p2 = new Person("bb","cc");
+        try{
+            em.getTransaction().begin();
+                     
+            
+           
+            em.persist(p1);
+            em.persist(p2);
+            em.getTransaction().commit();
+        }
+        finally{
+            em.close();
+        }
+        
     }
 
     /**
-     * Test of getPerson method, of class Facade.
+     * Test of getPerson method, of class TheFacade.
      */
     @Test
     public void testGetPerson() {
         System.out.println("getPerson");
-        int id = 0;
         
-        Person expResult = null;
-        Person result = instance.getPerson(id);
+        
+        String expResult = "aa";
+        String result = instance.getPerson(0).getFirstName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getPersons method, of class Facade.
+     * Test of getPersons method, of class TheFacade.
      */
     @Test
-    public void testGetPersons_0args() {
-        System.out.println("getPersons");
-        
-        List<Person> expResult = null;
+    public void testGetPersons() {
         List<Person> result = instance.getPersons();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(2,result.size());
     }
 
     /**
-     * Test of getPersons method, of class Facade.
+     * Test of getPersons method, of class TheFacade.
      */
     @Test
     public void testGetPersons_int() {
@@ -75,7 +98,7 @@ public class FacadeTest {
     }
 
     /**
-     * Test of getCompany method, of class Facade.
+     * Test of getCompany method, of class TheFacade.
      */
     @Test
     public void testGetCompany() {
@@ -90,7 +113,7 @@ public class FacadeTest {
     }
 
     /**
-     * Test of getCompnaies method, of class Facade.
+     * Test of getCompnaies method, of class TheFacade.
      */
     @Test
     public void testGetCompnaies() {
@@ -104,7 +127,7 @@ public class FacadeTest {
     }
 
     /**
-     * Test of addPerson method, of class Facade.
+     * Test of addPerson method, of class TheFacade.
      */
     @Test
     public void testAddPerson() {
@@ -118,7 +141,7 @@ public class FacadeTest {
     }
 
     /**
-     * Test of addComapny method, of class Facade.
+     * Test of addComapny method, of class TheFacade.
      */
     @Test
     public void testAddComapny() {
@@ -135,7 +158,7 @@ public class FacadeTest {
     }
 
     /**
-     * Test of removePerson method, of class Facade.
+     * Test of removePerson method, of class TheFacade.
      */
     @Test
     public void testRemovePerson() {
@@ -148,7 +171,7 @@ public class FacadeTest {
     }
 
     /**
-     * Test of removeCompany method, of class Facade.
+     * Test of removeCompany method, of class TheFacade.
      */
     @Test
     public void testRemoveCompany() {
