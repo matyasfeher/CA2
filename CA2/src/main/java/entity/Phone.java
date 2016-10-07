@@ -20,8 +20,6 @@ public class Phone implements Serializable {
     
     private int number;
     private String description;
-    @ManyToOne
-    private InfoEntity info;
 
     public Phone(int number, String description) {
         this.number = number;

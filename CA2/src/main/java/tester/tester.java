@@ -27,14 +27,14 @@ public class tester {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         Person person = new Person("I don't", "have", "a number");
-//        List<Phone> phoneList = new ArrayList();
-//        Phone phone = new Phone(50302505, "Mah phone");
-//        Phone phone1 = new Phone(50302510, "Mah phone");
-//        Phone phone2 = new Phone(50302520, "Mah phone");
-//        phoneList.add(phone);
-//        phoneList.add(phone1);
-//        phoneList.add(phone2);
-//        person.setPhoneList(phoneList);
+        List<Phone> phoneList = new ArrayList();
+        Phone phone = new Phone(50302505, "Mah phone");
+        Phone phone1 = new Phone(50302510, "Mah phone");
+        Phone phone2 = new Phone(50302520, "Mah phone");
+        phoneList.add(phone);
+        phoneList.add(phone1);
+        phoneList.add(phone2);
+        person.setPhoneList(phoneList);
         EntityManager em = emf.createEntityManager();
         try{
         em.getTransaction().begin();

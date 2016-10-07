@@ -45,7 +45,7 @@ public class TheFacade implements facadeInterface {
     @Override
     public List<Person> getPersons(int zipCode) {
         List<Person> people;
-        String query = "SELECT p FROM Person p WHERE p.zipCode = :" + zipCode;
+        String query = "SELECT p FROM Person p WHERE Phone p.number = :" + zipCode;
         EntityManager em = getEntityManager();
         Query q = em.createQuery(query);
         people = q.getResultList();
