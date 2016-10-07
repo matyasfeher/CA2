@@ -23,36 +23,32 @@ import javax.persistence.Table;
 @Entity
 //@Table(name="InfoEntity")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name="Type")
+@DiscriminatorColumn(name = "Type")
 public class InfoEntity implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "Info_Entity_ID")
     private Integer id;
     private String email;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Info_Entity_ID")
     private List<Phone> phoneList;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Info_Entity_ID")
-    private Address address;
-    
-    
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "Info_Entity_ID")
+//    private Address address;
 
     public InfoEntity(String email) {
         this.email = email;
 
     }
-    
-    
-    
+
     //Default Constructor
-    public InfoEntity(){
-    
+    public InfoEntity() {
+
     }
 
     //Getters&Setter
-
     public String getEmail() {
         return email;
     }
@@ -60,7 +56,7 @@ public class InfoEntity implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -77,12 +73,11 @@ public class InfoEntity implements Serializable {
         this.phoneList = phoneList;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-    
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 }
