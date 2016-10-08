@@ -29,9 +29,10 @@ public class InfoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "Info_Entity_ID")
+   
     private Integer id;
-    private String email;
+    private String email; 
+    @JoinColumn(name = "Info_Entity_ID")
     @OneToMany(cascade = CascadeType.ALL)
     private List<Phone> phoneList;
 //    @ManyToOne(fetch = FetchType.EAGER)
