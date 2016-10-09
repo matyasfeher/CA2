@@ -2,7 +2,9 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,31 +14,37 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Acer
  */
 @Entity
-//@Table(name="InfoEntity")
+@Table(name="InfoEntity")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "Type")
 public class InfoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @Basic(optional=false)
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "Info_Entity_ID")
+    @Column(name="id")
     private Integer id;
+    @Column(name="email")
     private String email;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="Phone")
     private List<Phone> phoneList;
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "Info_Entity_ID")
-//    private Address address;
+    @ManyToOne(cascade = CascadeType.ALL)
+     @JoinTable(name="INFOENTITY_ADDRESS", 
+  joinColumns=@JoinColumn(name="INFOENTITY_ID"),
+  inverseJoinColumns=@JoinColumn(name="ADDRESS_ID"))
+    private Address address;
 
     public InfoEntity(String email) {
         this.email = email;
@@ -73,11 +81,11 @@ public class InfoEntity implements Serializable {
         this.phoneList = phoneList;
     }
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
