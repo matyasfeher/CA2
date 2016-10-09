@@ -6,11 +6,79 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="js/placeholderValue.js" type="text/javascript"></script>
+        <script src="js/getItem.js" type="text/javascript"></script>
+        <link href="css/w3.css" rel="stylesheet" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link href="css/footer.css" rel="stylesheet" type="text/css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="container w3-green" style="width: 45%; height: 5%; font-size: 38px;">Documentation</div>
+        <div class="container" style="width: 45%; height: auto; font-size: 18px;">
+            <h3>The Contribution</h3>
+            <table class="table" style="width: 100%">
+
+                <tbody>
+                    <tr>
+                        <td>Test</td>
+                        <td>Mátyás/Plamen/Daniel</td>
+                    </tr>
+                    <tr>
+                        <td>Facades</td>
+                        <td>Mátyás</td>
+                    </tr>
+                    <tr>
+                        <td>Entity Classes</td>
+                        <td>Žygimantas/Daniel</td>
+                    </tr>
+                    <tr>
+                        <td>JSON</td>
+                        <td>Žygimantas</td>
+                    </tr>
+                    <tr>
+                        <td>Front End</td>
+                        <td>Žygimantas</td>
+                    </tr>
+                    <tr>
+                        <td>REST API</td>
+                        <td>Žygimantas/Mátyás/Plamen</td>
+                    </tr>
+                    <tr>
+                        <td>Server/MySql</td>
+                        <td>Žygimantas</td>
+                    </tr>  
+
+                </tbody>
+            </table>
+
+            <h3>Inheritance strategy</h3>
+            Our solution probably going to be the same as the majorities. We decided to go with JOINED Inheritance Strategy.
+            The goal was to make the database simple and easily readable. To add, by using, for example SINGLE_TABLE we create a table which
+            has all the fields from both entities which wont be filled from one another, so because of that we receive a lot of nulls which are not
+            necessary.
+            <b>By Žygimantas</b>
+            <hr>
+            <h3>Test doc.</h3>
+            We have not done any tests on the entity classes themselves since they only consist of getters and setters.
+            We have tested or database façade by testing all the methods on it, and using a mocked database .
+            However we never actually got our tests working due to us getting stuck on the following exception:
+            Exception Description: The attribute [addressList] in entity class [class entity.CityInfo] has a mappedBy value of [Address] which does not exist in its owning entity class [class entity.Address].
+            We researched it and it usually means that when you use a mappedby there needs to be mapping”instructions” in the targeted entityclass, which is why I cannot figure out why I get this since we have the following in our entity.Address:<br>
+             <i>@ManyToOne(cascade = CascadeType.ALL)<br>
+            @JoinTable(name = "ADDRESS_CITYINFO",<br>
+            joinColumns = @JoinColumn(name = "Address_Id"),<br>
+            inverseJoinColumns = @JoinColumn(name = "CityInfo_Id"))<br> </i>
+            <b>By Daniel</b>
+            <h3>REST API</h3>
+            In progress.
+            <h3>Git Hub.</h3>
+            <a href="https://github.com/matyasfeher/CA2" class="w3-btn w3-black" style="width: 100%">Go To Git</a>
+            
+            <hr>
+        </div>
     </body>
 </html>

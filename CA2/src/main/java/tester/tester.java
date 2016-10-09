@@ -28,51 +28,89 @@ public class tester {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         EntityManager em = emf.createEntityManager();
-        List<Phone> phoneList = new ArrayList();
-        Phone phone = new Phone(50302505, "Mah phone");
-        Phone phone1 = new Phone(50302510, "Mah phone");
-        Phone phone2 = new Phone(50302520, "Mah phone");
-        Company c1 = new Company("aa", "bb", "Email@email.com", 123, 345, 6);
-        Person p1 = new Person("aa", "bb", "Email@email.com");
-        Person p2 = new Person("bb", "cc", "Email@email.com");
-        Hobby h1 = new Hobby("something", "something else");
-        Hobby h2 = new Hobby("blabla", "blabla");
-        CityInfo ci1 = new CityInfo(2800, "City");
-        CityInfo ci2 = new CityInfo(2700, "Other City");
-        Address a1 = new Address("Street", "Additional info");
-        Address a2 = new Address("Street 2", "Additional info");
-        phoneList.add(phone);
-        phoneList.add(phone1);
-        phoneList.add(phone2);
-//        List<Address> addressList = new ArrayList();
-//        addressList.add(a1);
-//        addressList.add(a2);
-//        ci1.setAddressList(addressList);
-//        List<Person> pList = new ArrayList();
-//        pList.add(p1);
-//        pList.add(p2);
-        List<Hobby> hList = new ArrayList();
-        hList.add(h1);
-        hList.add(h2);
-        p1.setHobbyList(hList);
-        p2.setHobbyList(hList);
-//        h1.setPersonList(pList);
-//        h2.setPersonList(pList);
-        p1.setAddress(a2);
-        p2.setAddress(a1);
-        c1.setAddress(a2);
-        p1.setPhoneList(phoneList);
+        
+        Person person1 = new Person("Zygimantas", "Pranka", "pr.zygimantas@gmail.com");
+        Person person2 = new Person("Tomas", "Jablonskis", "tomas@gmail.com");
+        Person person3 = new Person("Juozas", "Kernagis", "juozas@gmail.com");
+        Person person4 = new Person("Kastytis", "Simonas", "kastytis@gmail.com");
+        Person person5 = new Person("Laurynas", "Kazilionis", "laurynas@gmail.com");
+        
+        Address address1 = new Address("Jamers st.", "Flat");
+        Address address2 = new Address("Alberts st.", "House");
+        Address address3 = new Address("Stains st.", "Flat");
+        Address address4 = new Address("Alborg st.", "Flat");
+        Address address5 = new Address("Franksan st.", "Flat");
+        
+        person1.setAddress(address1);
+        person2.setAddress(address2);
+        person3.setAddress(address3);
+        person4.setAddress(address4);
+        person5.setAddress(address5);
+        
+        Hobby hobby1 = new Hobby("Basketball", "Sports");   
+        Hobby hobby2 = new Hobby("Football", "Sports");
+        Hobby hobby3 = new Hobby("Chess", "Sports");
+        Hobby hobby4 = new Hobby("VolleyBall", "Sports");
+        Hobby hobby5 = new Hobby("Hockey", "Sports");
+        
+        List<Hobby> list1 = new ArrayList();
+        List<Hobby> list2 = new ArrayList();
+        List<Hobby> list3 = new ArrayList();
+        List<Hobby> list4 = new ArrayList();
+        
+        list1.add(hobby1);
+        list1.add(hobby2);
+        list2.add(hobby2);
+        list2.add(hobby3);
+        list3.add(hobby3);
+        list3.add(hobby4);
+        list4.add(hobby4);
+        list4.add(hobby5);
+        
+        
+        person1.sethobbies(list1);
+        person2.sethobbies(list3);
+        person3.sethobbies(list4);
+        person4.sethobbies(list2);
+        person5.sethobbies(list1);
+        
+        Phone phone1 = new Phone(55555555, "Mobile phone");
+        Phone phone2 = new Phone(56555555, "House phone");
+        Phone phone3 = new Phone(55755555, "Mobile phone");
+        Phone phone4 = new Phone(55585555, "House phone");
+        Phone phone5 = new Phone(55559555, "Mobile phone");
+        
+        List<Phone> ph1 = new ArrayList();
+        List<Phone> ph2 = new ArrayList();
+        List<Phone> ph3 = new ArrayList();
+        List<Phone> ph4 = new ArrayList();
+        List<Phone> ph5 = new ArrayList();
+        
+        ph1.add(phone1);
+        ph2.add(phone2);
+        ph3.add(phone3);
+        ph4.add(phone4);
+        ph5.add(phone5);
+        
+        person1.setPhoneList(ph1);
+        person2.setPhoneList(ph2);
+        person3.setPhoneList(ph3);
+        person4.setPhoneList(ph4);
+        person5.setPhoneList(ph5);
+        
+        
+        
+
 
         try {
-            em.getTransaction().begin();
-
-            em.persist(p1);
-            em.persist(p2);
-            em.persist(ci1);
-            em.persist(ci2);
-            em.persist(c1);
-
-            em.getTransaction().commit();
+          em.getTransaction().begin();
+          em.persist(person1);
+          em.persist(person2);
+          em.persist(person3);
+          em.persist(person4);
+          em.persist(person5);
+          em.getTransaction().commit();
+            
         } finally {
             em.close();
         }

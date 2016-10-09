@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>Finder</title>
         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script src="js/placeholderValue.js" type="text/javascript"></script>
         <script src="js/getItem.js" type="text/javascript"></script>
@@ -28,9 +28,12 @@
                         <option value="5">City</option> -->
                     </select>
                     <button id="submitBt" class="w3-btn w3-black" style="float: right; height: 35px" >Search</button>
-                    <input style="width: 91%" id="searchItem" class="w3-input" type="text" placeholder="Select one of the options above!" disabled>
+                    <input style="width: 91%" id="searchItem" class="w3-input" type="text" placeholder="Select one of the options above! (Click On Search By)" disabled>
                     <button id="submitBt2" class="w3-btn w3-black" style="float: left; height: 35px; width: 50%">List All Persons</button>
                     <button id="submitBt3" class="w3-btn w3-black" style="float: right; height: 35px; width: 50%">List All Companies</button>
+                    <br><br>
+                    <button id="docmodal" class="w3-btn w3-black" style="float: left; height: 35px; width: 100%">Documentation</button>
+                    
                 </div>
 
                 <!-- The Modal -->
@@ -75,6 +78,17 @@
                         </div>
                     </div>
                 </div>
+                <!-- The Modal -->
+                <div id="id04" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                            <span onclick="document.getElementById('id04').style.display = 'none'" 
+                                  class="w3-closebtn">&times;</span>
+                                  <div id="project"></div>
+                           
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="footer">
@@ -86,7 +100,7 @@
                     <td>COS</td>
                 </tr>
                 <tr>
-                    <td>No Idea</td>
+                    <td>Group 4</td>
                 </tr>
 
             </table>

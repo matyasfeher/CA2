@@ -3,10 +3,10 @@ $(function(){
    $("#option").on("click", function () {
        $("#searchItem").prop("disabled", false);
        if($(this).val() === "1"){
-           $("#searchItem").attr('placeholder', 'First Name, Last Name');
+           $("#searchItem").attr('placeholder', 'ID, First Name, Last Name, Email (Hobby, Address and Phone Number in Progress)');
        }
        else if($(this).val() === "2"){
-           $("#searchItem").attr('placeholder', 'Company Name, CVR, etc.');
+           $("#searchItem").attr('placeholder', 'Name, CVR, ID, Email, Market Value, Emploee Count, etc. (Phone Number and Address in Progress)');
        }
        else if($(this).val() === "3"){
            $("#searchItem").attr('placeholder', 'Phone Number');

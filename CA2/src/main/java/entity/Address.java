@@ -1,16 +1,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -24,23 +22,19 @@ public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private Integer id;
-//    @Column(name = "street")
-    private String Street;
-//    @Column(name = "addinfo")
-    private String AdditionalInfo;
+    private String street;
+    private String additionalInfo;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private CityInfo cityInfo;
+    @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
+    private List<InfoEntity> infoEntities = new ArrayList();
 
-
-    @ManyToOne
-    private CityInfo cInfo;
-    
 //    @OneToMany(cascade = CascadeType.ALL)
 //    private List<InfoEntity> entity;
-
-    public Address(String Street, String AdditionalInfo) {
-        this.Street = Street;
-        this.AdditionalInfo = AdditionalInfo;
+    public Address(String street, String additionalInfo) {
+        this.street = street;
+        this.additionalInfo = additionalInfo;
     }
 
     //Default Constructor
@@ -49,20 +43,20 @@ public class Address implements Serializable {
     }
 
     //Getters&Setter
-    public String getStreet() {
-        return Street;
+    public String getstreet() {
+        return street;
     }
 
-    public void setStreet(String Street) {
-        this.Street = Street;
+    public void setstreet(String street) {
+        this.street = street;
     }
 
-    public String getAdditionalInfo() {
-        return AdditionalInfo;
+    public String getadditionalInfo() {
+        return additionalInfo;
     }
 
-    public void setAdditionalInfo(String AdditionalInfo) {
-        this.AdditionalInfo = AdditionalInfo;
+    public void setadditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
     }
 
     public Integer getId() {
@@ -73,21 +67,20 @@ public class Address implements Serializable {
         this.id = id;
     }
 
-    public CityInfo getcInfo() {
-        return cInfo;
+    public CityInfo getcityInfo() {
+        return cityInfo;
     }
 
-    public void setcInfo(CityInfo cInfo) {
-        this.cInfo = cInfo;
+    public void setcityInfo(CityInfo cityInfo) {
+        this.cityInfo = cityInfo;
     }
 
-//    public List<InfoEntity> getEntity() {
-//        return entity;
-//    }
-//
-//    public void setEntity(List<InfoEntity> entity) {
-//        this.entity = entity;
-//    }
-    
+    public List<InfoEntity> getEntity() {
+        return infoEntities;
+    }
+
+    public void setEntity(List<InfoEntity> entity) {
+        this.infoEntities = entity;
+    }
+
 }
-

@@ -55,7 +55,7 @@
 //        List<Address> addressList = new ArrayList();
 //        addressList.add(a1);
 //        addressList.add(a2);
-//        ci1.setAddressList(addressList);
+////        ci1.setAddressList(addressList);
 //        List<Person> pList = new ArrayList();
 //        pList.add(p1);
 //        pList.add(p2);
@@ -64,8 +64,8 @@
 //        hList.add(h2);
 //        p1.setHobbyList(hList);
 //        p2.setHobbyList(hList);
-//        h1.setPersonList(pList);
-//        h2.setPersonList(pList);
+////        h1.setPersonList(pList);
+////        h2.setPersonList(pList);
 //        p1.setAddress(a2);
 //        p2.setAddress(a1);
 //        c1.setAddress(a2);
@@ -74,15 +74,7 @@
 //        try {
 //            em.getTransaction().begin();
 //
-//            em.persist(ci1);
-//            em.persist(ci2);
-//            em.persist(h1);
-//            em.persist(h2);
-//            em.persist(a1);
-//            em.persist(a2);
-//            em.persist(phone);
-//            em.persist(phone1);
-//            em.persist(phone2);
+//
 //            em.persist(p1);
 //            em.persist(p2);
 //            em.persist(c1);

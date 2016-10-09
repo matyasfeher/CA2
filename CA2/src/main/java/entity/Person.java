@@ -1,15 +1,11 @@
 package entity;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -18,35 +14,33 @@ import javax.persistence.Table;
  * @author Acer
  */
 @Entity
-@Table(name="person")
+@Table(name = "person")
 
-        
 public class Person extends InfoEntity {
+
     private static final long serialVersionUID = 1L;
 
 //    @Column(name="firstname")
     private String firstName;
 //    @Column(name="lastname")
     private String lastName;
-     
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Hobby> hobbyList;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
+    private List<Hobby> hobbies = new ArrayList();
 
     public Person(String firstName, String lastName, String email) {
         super(email);
         this.firstName = firstName;
-        this.lastName = lastName; 
-        
+        this.lastName = lastName;
+
     }
-    
-    
-    
-    public Person(){
-    
+
+    public Person() {
+
     }
 
     //Getters&Setter
-
     public String getFirstName() {
         return firstName;
     }
@@ -63,16 +57,12 @@ public class Person extends InfoEntity {
         this.lastName = lastName;
     }
 
-    public List<Hobby> getHobbyList() {
-        return hobbyList;
+    public List<Hobby> gethobbies() {
+        return hobbies;
     }
 
-    public void setHobbyList(List<Hobby> hobbyList) {
-        this.hobbyList = hobbyList;
+    public void sethobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
     }
-    
-    
-    
 
-    
 }

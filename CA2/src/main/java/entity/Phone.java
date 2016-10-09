@@ -27,8 +27,8 @@ public class Phone implements Serializable {
 //    @Column(name="Description")
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private InfoEntity entity;
+    @ManyToOne
+    private InfoEntity infoEntity;
 
     public Phone(int number, String description) {
         this.number = number;
@@ -69,13 +69,13 @@ public class Phone implements Serializable {
         this.id = id;
     }    
 
-//    public InfoEntity getEntity() {
-//        return entity;
-//    }
-//
-//    public void setEntity(InfoEntity entity) {
-//        this.entity = entity;
-//    }
+    public InfoEntity getinfoEntity() {
+        return infoEntity;
+    }
+
+    public void setinfoEntity(InfoEntity infoEntity) {
+        this.infoEntity = infoEntity;
+    }
     
     
 }

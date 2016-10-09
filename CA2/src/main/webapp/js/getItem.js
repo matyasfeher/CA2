@@ -31,7 +31,7 @@ $(function () {
                         +"</th>";
                         row = row + "<td>" + JSON.stringify(value) + "</td>";
 
-                        if (value === searchAttribute) {
+                        if (value.toString() === searchAttribute.toString()) {
                             exists = true;
                         }
 
@@ -59,7 +59,7 @@ $(function () {
                         +"</th>";
                         row = row + "<td>" + JSON.stringify(value) + "</td>";
 
-                        if (value === searchAttribute) {
+                        if (value.toString() === searchAttribute.toString()) {
                             exists = true;
                         }
 
@@ -120,6 +120,10 @@ $(function () {
                 $('#modal3').find('thead:last').html(fullhead);
                 $('#modal3').find('tbody:last').append(fullrow);
             });
+        });
+        $("#docmodal").on("click", function(){
+            document.getElementById('id04').style.display = 'block';
+            $("#project").load("project.html");
         });
 
     });

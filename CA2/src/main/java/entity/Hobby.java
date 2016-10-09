@@ -1,10 +1,10 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +26,8 @@ public class Hobby implements Serializable {
     private String name;
 //    @Column(name="description")
     private String description;
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private List<Person> personList;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "hobbies")
+    private List<Person> personList = new ArrayList();
 
     public Hobby(String name, String description) {
         this.name = name;
@@ -64,12 +64,11 @@ public class Hobby implements Serializable {
         this.id = id;
     }
 
-//    public List<Person> getPersonList() {
-//        return personList;
-//    }
-//
-//    public void setPersonList(List<Person> personList) {
-//        this.personList = personList;
-//    }
+    public List<Person> getPersonList() {
+        return personList;
+    }
 
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }
 }

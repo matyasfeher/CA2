@@ -13,12 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
 
 /**
  *
@@ -36,9 +34,9 @@ public class InfoEntity implements Serializable {
     private Integer id;
 //    @Column(name="email")
     private String email;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "infoEntity",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
     private List<Phone> phoneList;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne (cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Address address;
 
     public InfoEntity(String email) {

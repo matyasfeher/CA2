@@ -1,15 +1,12 @@
-
 package entity;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -17,38 +14,32 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class CityInfo implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name="id")
-    private Integer id;
-//    @Column(name="ZIP")
-    private int ZIP;
-//    @Column(name="city")
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    private int zipCode;
     private String city;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<Address> addressList;
 
     public CityInfo(int zipCode, String city) {
-        this.ZIP = zipCode;
+        this.zipCode = zipCode;
         this.city = city;
     }
-    
-    
-    
+
     //Default Constructor
-    public CityInfo(){
-    
+    public CityInfo() {
+
     }
 
     //Getters&Setter
-
-    public int getZipCode() {
-        return ZIP;
+    public int getzipCode() {
+        return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
-        this.ZIP = zipCode;
+    public void setzipCode(int zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getCity() {
@@ -58,23 +49,7 @@ public class CityInfo implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
-    
-    
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public int getZIP() {
-        return ZIP;
-    }
-
-    public void setZIP(int ZIP) {
-        this.ZIP = ZIP;
-    }
 
 //    public List<Address> getAddressList() {
 //        return addressList;
