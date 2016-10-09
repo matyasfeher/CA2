@@ -1,6 +1,7 @@
 $(function(){
    
    $("#option").on("click", function () {
+       $("#searchItem").prop("disabled", false);
        if($(this).val() === "1"){
            $("#searchItem").attr('placeholder', 'First Name, Last Name');
        }

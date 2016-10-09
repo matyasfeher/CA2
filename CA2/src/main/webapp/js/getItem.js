@@ -12,11 +12,13 @@ $(function () {
             ).then(function () {
 
         $("#submitBt").on("click", function () {
-            document.getElementById('id01').style.display = 'block';
+
             $('#filtered').find('thead:last').html("");
             $('#filtered').find('tbody:last').html("");
             var searchAttribute = $("#searchItem").val();
+            searchAttribute.toString();
             if ($("#option").val() === "1") {
+                document.getElementById('id01').style.display = 'block';
                 $.each(person, function (key) {
                     var allPersons = person[key];
                     var exists = false;
@@ -27,7 +29,7 @@ $(function () {
                     $.each(allPersons, function (type, value) {
                         head = head + "<th>" + type.toUpperCase();
                         +"</th>";
-                        row = row + "<td>" + value + "</td>";
+                        row = row + "<td>" + JSON.stringify(value) + "</td>";
 
                         if (value === searchAttribute) {
                             exists = true;
@@ -44,13 +46,36 @@ $(function () {
                     }
                 });
             } else if ($("#option").val() === "2") {
+                document.getElementById('id01').style.display = 'block';
+                $.each(company, function (key) {
+                    var allCompanies = company[key];
+                    var exists = false;
+                    var row = "";
+                    var head = "";
+                    var fullhead;
+                    var fullrow;
+                    $.each(allCompanies, function (type, value) {
+                        head = head + "<th>" + type.toUpperCase();
+                        +"</th>";
+                        row = row + "<td>" + JSON.stringify(value) + "</td>";
 
-            } else if ($("#option").val() === "3") {
+                        if (value === searchAttribute) {
+                            exists = true;
+                        }
 
-            } else if ($("#option").val() === "4") {
 
-            } else if ($("#option").val() === "5") {
+                    });
+                    if (exists) {
+                        fullhead = "<tr>" + head + "</tr>";
+                        fullrow = "<tr>" + row + "</tr>";
+                        $('#filtered').find('thead:last').html(fullhead);
+                        $('#filtered').find('tbody:last').append(fullrow);
 
+                    }
+                });
+
+            } else {
+                console.log("You didn't select an option!");
             }
         });
         $("#submitBt2").on("click", function () {
@@ -66,7 +91,7 @@ $(function () {
                 $.each(allPersons, function (type, value) {
                     head = head + "<th>" + type.toUpperCase();
                     +"</th>";
-                    row = row + "<td>" + value + "</td>";
+                    row = row + "<td>" + JSON.stringify(value) + "</td>";
                 });
                 fullhead = "<tr>" + head + "</tr>";
                 fullrow = "<tr>" + row + "</tr>";
@@ -88,7 +113,7 @@ $(function () {
                 $.each(allCompanies, function (type, value) {
                     head = head + "<th>" + type.toUpperCase();
                     +"</th>";
-                    row = row + "<td>" + value + "</td>";
+                    row = row + "<td>" + JSON.stringify(value) + "</td>";
                 });
                 fullhead = "<tr>" + head + "</tr>";
                 fullrow = "<tr>" + row + "</tr>";

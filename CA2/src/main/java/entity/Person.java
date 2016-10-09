@@ -2,34 +2,35 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author Acer
  */
 @Entity
+@Table(name="person")
+
         
 public class Person extends InfoEntity {
     private static final long serialVersionUID = 1L;
 
-    
+//    @Column(name="firstname")
     private String firstName;
+//    @Column(name="lastname")
     private String lastName;
-    @ManyToMany
+     
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Hobby> hobbyList;
-
-    public List<Hobby> getHobbyList() {
-        return hobbyList;
-    }
-
-    public void setHobbyList(List<Hobby> hobbyList) {
-        this.hobbyList = hobbyList;
-    }
 
     public Person(String firstName, String lastName, String email) {
         super(email);
@@ -60,6 +61,14 @@ public class Person extends InfoEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Hobby> getHobbyList() {
+        return hobbyList;
+    }
+
+    public void setHobbyList(List<Hobby> hobbyList) {
+        this.hobbyList = hobbyList;
     }
     
     

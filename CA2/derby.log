@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Oct 09 20:27:25 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0157-aab3-15d8-000005ed1a20 
+on database directory C:\Users\przyg\Google Drive\NetBeansProjects\CA2\CA2\CA2\memory\testDB with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
+Loaded from file:/C:/Users/przyg/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_74-b02
+user.dir=C:\Users\przyg\Google Drive\NetBeansProjects\CA2\CA2\CA2
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

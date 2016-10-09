@@ -76,6 +76,8 @@ public class Company extends InfoEntity {
     public void setMarketValue(int marketValue) {
         this.marketValue = marketValue;
     }
+    
+    
 
 
 }
