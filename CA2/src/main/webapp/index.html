@@ -5,7 +5,7 @@
         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script src="js/placeholderValue.js" type="text/javascript"></script>
         <script src="js/getItem.js" type="text/javascript"></script>
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <link href="css/footer.css" rel="stylesheet" type="text/css"/>
@@ -29,6 +29,51 @@
                     </select>
                     <button id="submitBt" class="w3-btn w3-black" style="float: right; height: 35px" >Search</button>
                     <input style="width: 91%" id="searchItem" class="w3-input" type="text" placeholder="Select one of the options above!" >
+                    <button id="submitBt2" class="w3-btn w3-black" style="float: left; height: 35px; width: 50%">List All Persons</button>
+                    <button id="submitBt3" class="w3-btn w3-black" style="float: right; height: 35px; width: 50%">List All Companies</button>
+                </div>
+
+                <!-- The Modal -->
+                <div id="id01" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                            <span onclick="document.getElementById('id01').style.display = 'none'" 
+                                  class="w3-closebtn">&times;</span>
+
+                            <table id="filtered" class="table">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- The Modal -->
+                <div id="id02" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                            <span onclick="document.getElementById('id02').style.display = 'none'" 
+                                  class="w3-closebtn">&times;</span>
+                            <table id="modal2" class="table">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- The Modal -->
+                <div id="id03" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                            <span onclick="document.getElementById('id03').style.display = 'none'" 
+                                  class="w3-closebtn">&times;</span>
+
+                            <table id="modal3" class="table">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

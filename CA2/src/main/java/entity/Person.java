@@ -23,6 +23,14 @@ public class Person extends InfoEntity {
     @ManyToMany
     private List<Hobby> hobbyList;
 
+    public List<Hobby> getHobbyList() {
+        return hobbyList;
+    }
+
+    public void setHobbyList(List<Hobby> hobbyList) {
+        this.hobbyList = hobbyList;
+    }
+
     public Person(String firstName, String lastName, String email) {
         super(email);
         this.firstName = firstName;

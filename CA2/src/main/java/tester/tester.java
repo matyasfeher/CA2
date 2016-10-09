@@ -26,15 +26,17 @@ import javax.persistence.Persistence;
 public class tester {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
-        Person person = new Person("I don't", "have", "a number");
+        Person person = new Person("Zygi", "Pranka", "pr.zygimantas@gmail.com");
+        Hobby hobby = new Hobby("Kiting", "Funfair");
         List<Phone> phoneList = new ArrayList();
-        Phone phone = new Phone(50302505, "Mah phone");
-        Phone phone1 = new Phone(50302510, "Mah phone");
-        Phone phone2 = new Phone(50302520, "Mah phone");
+        List<Hobby> hobbyList = new ArrayList();
+        Phone phone = new Phone(50302505, "Mobile");
+        Address address = new Address("New Manden", "South-West");
         phoneList.add(phone);
-        phoneList.add(phone1);
-        phoneList.add(phone2);
+        hobbyList.add(hobby);
         person.setPhoneList(phoneList);
+        person.setAddress(address);
+        person.setHobbyList(hobbyList);
         EntityManager em = emf.createEntityManager();
         try{
         em.getTransaction().begin();

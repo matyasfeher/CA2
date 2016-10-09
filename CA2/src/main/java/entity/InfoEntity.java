@@ -35,9 +35,9 @@ public class InfoEntity implements Serializable {
     @JoinColumn(name = "Info_Entity_ID")
     @OneToMany(cascade = CascadeType.ALL)
     private List<Phone> phoneList;
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "Info_Entity_ID")
-//    private Address address;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Info_Entity_ID")
+    private Address address;
 
     public InfoEntity(String email) {
         this.email = email;
@@ -74,11 +74,11 @@ public class InfoEntity implements Serializable {
         this.phoneList = phoneList;
     }
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
