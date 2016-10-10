@@ -2,9 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,31 +11,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 /**
  *
  * @author Acer
  */
 @Entity
-@Table(name="InfoEntity")
+//@Table(name="InfoEntity")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "Type")
 public class InfoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name="id")
+   
     private Integer id;
-//    @Column(name="email")
-    private String email;
-    @OneToMany(mappedBy = "infoEntity",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    private String email; 
+    @JoinColumn(name = "Info_Entity_ID")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Phone> phoneList;
-    @ManyToOne (cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    private Address address;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "Info_Entity_ID")
+//    private Address address;
 
     public InfoEntity(String email) {
         this.email = email;
@@ -74,13 +74,11 @@ public class InfoEntity implements Serializable {
         this.phoneList = phoneList;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-    
-    
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 }
